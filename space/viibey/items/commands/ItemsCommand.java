@@ -9,6 +9,7 @@ import space.viibey.items.utils.Utils;
 import space.viibey.items.utils.commands.Command;
 import space.viibey.items.utils.commands.CommandArgs;
 import space.viibey.items.utils.commands.ICommand;
+import org.apache.commons.lang.math.NumberUtils;
 
 import javax.rmi.CORBA.Util;
 
@@ -38,7 +39,7 @@ public class ItemsCommand extends ICommand {
                 return;
             }
 
-            int amount = Utils.isInt(args.getArgs(2)) ? Integer.parseInt(args.getArgs(2)) : 1;
+            int amount = NumberUtils.isNumber(args.getArgs(2)) ? Integer.parseInt(args.getArgs(2)) : 1;
 
             InventoryUtils.addItem(target, customItem.getItem().toItemBuilder().toItemStack(), amount);
         }
